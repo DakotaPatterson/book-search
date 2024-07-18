@@ -23,7 +23,7 @@ const server = new ApolloServer({
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://book-search-uvvq.onrender.com'],
   methods: ['GET', 'POST'], // Adjust HTTP methods as needed
   allowedHeaders: ['Content-Type', 'Authorization'], // Adjust allowed headers as needed
 }));
