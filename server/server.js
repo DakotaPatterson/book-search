@@ -1,7 +1,7 @@
 const express = require('express');
 
 // Import the ApolloServer class
-const { ApolloServer } = require('@apollo/server');
+const { ApolloServer } = require('apollo-server-expres');
 const { expressMiddleware } = require('@apollo/server/express4');
 
 // Import the two parts of a GraphQL schema
@@ -9,7 +9,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 const { authMiddleware } = require('./utils/auth');
-
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3001;
 // Create Apollo Server instance
@@ -20,6 +20,11 @@ const server = new ApolloServer({
 });
 
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:3000', // Adjust as necessary for your frontend
+  credentials: true,
+}));
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startServer = async () => {

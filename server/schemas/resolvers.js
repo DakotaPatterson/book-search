@@ -30,7 +30,7 @@ const resolvers = {
   },
   Mutation: {
     // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-    createUser: async (parent, { username, email, password }) => {
+    addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
 
       if (!user) {
@@ -74,7 +74,7 @@ const resolvers = {
       }
     },
     // remove a book from `savedBooks`
-    deleteBook: async (parent, { bookId }, context) => {
+    removeBook: async (parent, { bookId }, context) => {
       if (!context.user) {
         throw new Error('You need to be logged in!');
       }
