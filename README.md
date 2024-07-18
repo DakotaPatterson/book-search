@@ -15,7 +15,7 @@
 ## Usage
 
 The best way to use this application is to go to the launched URL and view the pages of the website and test all the functions like the login and the saved books feature.
-![](./src/assets/screenshot.png)
+![](./client/src/assets/screenshot.png)
 
 ## Contribution
 
